@@ -34,10 +34,7 @@ resource "aws_lambda_function" "PLAITcode" {
   role             = aws_iam_role.lambda_exec.arn
 }
 
-resource "aws_cloudwatch_log_group" "PLAITcode" {
-  name = "/aws/lambda/terraform_test"
-  retention_in_days = 30
-}
+
 
 resource "aws_iam_role" "lambda_exec" {
   name = "serverless_test_lambda"
