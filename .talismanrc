@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: .github/workflows/main.yaml
+  checksum: 9a6ff97c4e08b351c38386685a00c466cb2d9374631f130c9984274f01dbff0c
+version: ""

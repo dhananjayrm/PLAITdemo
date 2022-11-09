@@ -17,24 +17,24 @@ provider "aws" {
   profile = "credentials/aws-profile"
 }
 
-data "archive_file" "lambda_plait_demo" {
+data "archive_file" "lambda_PLAITdemo" {
   type = "zip"
 
-  source_dir  = "${path.module}/plait_demo"
-  output_path = "${path.module}/plait_demo.zip"
+  source_dir  = "${path.module}/PLAITdemo"
+  output_path = "${path.module}/PLAITdemo.zip"
 }
 
 # to Create function
-resource "aws_lambda_function" "plait_demo" {
-  function_name = "plait_demo"
-  filename      = "plait_demo.zip"
+resource "aws_lambda_function" "PLAITdemo" {
+  function_name = "PLAITdemo"
+  filename      = "PLAITdemo.zip"
   runtime = "nodejs14.x"
   handler = "index.handler"
-  source_code_hash = data.archive_file.lambda_plait_demo.output_base64sha256
+  source_code_hash = data.archive_file.lambda_PLAITdemo.output_base64sha256
   role             = aws_iam_role.lambda_exec.arn
 }
 
-resource "aws_cloudwatch_log_group" "plait_demo" {
+resource "aws_cloudwatch_log_group" "PLAITdemo" {
   name = "/aws/lambda/terraform_test"
   retention_in_days = 30
 }
