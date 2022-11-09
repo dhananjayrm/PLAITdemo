@@ -14,7 +14,7 @@ provider "aws" {
   region  = "ap-northeast-1"
   # if you run terraform locally then you will need to replace this with your credentials/aws-profile
   # and if you want to run through Github actions then you need to configure Secrets into Github
-  profile = "credentials/aws-profile"
+  # profile = "credentials/aws-profile"
 }
 
 data "archive_file" "lambda_PLAITdemo" {
