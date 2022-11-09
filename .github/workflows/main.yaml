@@ -19,14 +19,14 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-1
-      - name: Terraform init
-          id: init
-          run: terraform init
+          aws-region: us-east-1
       - uses: hashicorp/setup-terraform@v2
+      - name: Terraform init
+        id: init
+        run: terraform init
       - name: Terraform plan
-          id: plan
-         run: terraform plan
+        id: plan
+        run: terraform plan
       - name: Terraform apply
         id: apply
         run: terraform apply -auto-approve -input=false
